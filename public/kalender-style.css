@@ -1,0 +1,129 @@
+
+     @font-face {
+        font-family: LobsterTwo;
+        src: url(./LobsterTwo-BoldItalic.ttf);
+    }
+     
+      body {
+        overflow: hidden;
+        background: url(./images/Sky-Stars-Pattern.jpg);
+        background-repeat: repeat;
+        background-attachment: fixed;
+        background-size: contain;
+        font-family: LobsterTwo;
+        font-size: 10px;
+      }
+
+      #stage {
+        margin-top: 15%;
+        margin-left: 30%;
+        width: 600px;
+        height: 400px;
+        /*
+        
+        Setting the perspective of the contents of the stage
+        but not the stage itself
+        
+        */
+        -webkit-perspective: 800;
+      }
+
+      #rotate {
+        background: url(./images/Sky-Stars-Pattern.jpg);
+        background-size: 60vw;
+        margin: 0 auto;
+        width: 600px;
+        height: 400px;
+        /* Ensure that we're in 3D space */
+        -webkit-transform-style: preserve-3d;
+        /*
+        Make the whole set of rows use the x-axis spin animation
+        for a duration of 7 seconds, running infinitely and linearly
+        */
+       /* -webkit-animation-name: x-spin;*/
+        -webkit-animation-duration: 7s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+      }
+
+      .ring {
+        margin: 0 auto;
+        height: 110px;
+        width: 600px;
+        -webkit-transform-style: preserve-3d;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+      }
+      
+      .ring > :nth-child(odd) {
+        background-color: #995C7F;
+      }
+
+      .ring > :nth-child(even) {
+        background-color: #835A99;
+      }
+
+      .poster {
+        position: absolute;
+        left: 250px;
+        width: 100px;
+        height: 100px;
+        color: rgba(0,0,0,0.9);
+        -webkit-border-radius: 10px;
+      }
+      
+      .poster > a {
+        margin-left: 10%;
+        font-family: LobsterTwo;
+        font-size: 36px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 28px;
+      }
+
+      .num{
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
+      
+      .images{
+        width:100%;
+      }
+      /*
+      Set up each row to have a different animation duration
+      and alternating y-axis rotation directions.
+      */
+      #ring-1 {
+        -webkit-animation-name: y-spin;
+        -webkit-animation-duration: 25s;
+      }
+
+      #ring-2 {
+        -webkit-animation-name: back-y-spin;
+        -webkit-animation-duration: 24s;
+      }
+
+      #ring-3 {
+        -webkit-animation-name: y-spin;
+        -webkit-animation-duration: 23s;
+      }
+
+      @-webkit-keyframes x-spin {
+        0%    { -webkit-transform: rotateX(0deg); }
+        50%   { -webkit-transform: rotateX(180deg); }
+        100%  { -webkit-transform: rotateX(360deg); }
+      }
+
+      @-webkit-keyframes y-spin {
+        0%    { -webkit-transform: rotateY(0deg); }
+        50%   { -webkit-transform: rotateY(180deg); }
+        100%  { -webkit-transform: rotateY(360deg); }
+      }
+
+      @-webkit-keyframes back-y-spin {
+        0%    { -webkit-transform: rotateY(360deg); }
+        50%   { -webkit-transform: rotateY(180deg); }
+        100%  { -webkit-transform: rotateY(0deg); }
+      }
